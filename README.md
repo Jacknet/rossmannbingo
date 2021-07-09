@@ -7,3 +7,5 @@ This 2nd revision of Rossmann Bingo aims to create a more open and streamlined s
 ---
 
 _Site code by ayyEve, original idea and rev2 by Jacknet_
+
+_"Rossmann Repair Group" and associated designs &copy; Rossmann Repair Group Inc_
