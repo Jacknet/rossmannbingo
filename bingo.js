@@ -1,7 +1,34 @@
 var boxes =  [];
-var options = ["Cats", "Thermal Paste", "Green Battery Charger Light", "Apple \"Genius\"", "SEK or DKK", "MacBook Air", "Jumper Wire", "PPBUS or PP3V42", "Shorted path or Component", "Q-Tip", "Flux", "Bad Solder joints", "Don't delay!, Buy today!", "Fanspin", "Heat Gun", "Boot Loop", "FlexBV", "Board Corrosion or Rust", "Liquid Damage", "De-Soldering Braid", "MacBook Pro", "Bad Resistor or Capacitor", "Thermal Camera", "Apple System Diagnostic", "G3HOT", "magtrometer"];
+var options = []; // Data will be retrieved from JSON
 var bingo = 0;
 var bingoCalled = 0;
+
+// Function that will load the JSON file
+function loadData(callback) {
+  // New XHR to submit
+  var xobj = new XMLHttpRequest();
+
+  // Set mime type override to JSON
+  xobj.overrideMimeType("application/json");
+
+  // Set on ready state change
+  xobj.onreadystatechange = function() {
+      // If status is okay
+      if (xobj.readyState == 4 && xobj.status == "200") {
+          // Call back with response data
+          callback(xobj.responseText);
+      }
+  };
+
+  // Get JSON file
+  xobj.open('GET', 'bingo.json', true);
+
+  // Keep CORS relaxed
+  xobj.setRequestHeader("Access-Control-Allow-Origin","*");
+
+  // Send the request
+  xobj.send(null);
+};
 
 function getBox(num) {
   //num++;
@@ -63,13 +90,30 @@ function get() { // helper funcion
 function getCardUrl() {
   // add this later maybe
 }
-for (let i = 0; i < 25; i++) {
-  boxes[i] = 0;
-  if (i==13-1) {
-    boxes[i] = 1;
-    continue; // ignore free space
+
+// Retrieve the JSON data
+loadData(function(response) {
+  // Parse JSON string into an object
+  var bingoData = JSON.parse(response);
+
+  // If puzzle list returned, run actions
+  if (bingoData) {
+    // Store bingo data
+    options = bingoData.options;
+
+    // Remove loading message from free box
+    document.getElementsByClassName("freeBox")[0].innerText = "Free Space";
+
+    // Run bingo code
+    for (let i = 0; i < 25; i++) {
+      boxes[i] = 0;
+      if (i==13-1) {
+        boxes[i] = 1;
+        continue; // ignore free space
+      }
+      let b = getBox(i);
+      b.innerHTML = get(); // Pass data to helpter
+      b.onclick = () => boxClick(b, i);
+    }
   }
-  let b = getBox(i);
-  b.innerHTML = get();
-  b.onclick = () => boxClick(b, i);
-}
+});
