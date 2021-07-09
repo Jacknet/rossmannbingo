@@ -1,13 +1,12 @@
 {
   "options": [
-    "Cats",
     "Thermal Paste",
     "Green Battery Charger Light",
     "Apple \"Genius\"",
     "SEK or DKK",
     "MacBook Air",
     "Jumper Wire",
-    "PPBUS or PP3V42",
+    "PP3V42",
     "Shorted path or Component",
     "Q-Tip",
     "Flux",
@@ -24,7 +23,24 @@
     "Bad Resistor or Capacitor",
     "Thermal Camera",
     "Apple System Diagnostic",
-    "G3HOT",
-    "magtrometer"
+    "PPBUS G3HOT",
+    "magtrometer",
+    "Mr. Clinton",
+    "Blackberry",
+    "Oreo",
+    "For Rent",
+    "Hope You Learn Something",
+    "John Deere",
+    "JTAG",
+    "Right to Repair Bill",
+    "Lobbying",
+    "Real Estate",
+    "Paul",
+    "Dan Getting Scared",
+    "Electric Bikes",
+    "Duck",
+    "Backlight Issue",
+    "Aggravated",
+    "Disgusting Practice"
   ]
 }
