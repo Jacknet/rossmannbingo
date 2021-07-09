@@ -81,6 +81,7 @@
 
 #link, #link:visited {
   font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-style: normal;
   text-decoration:none;
@@ -89,4 +90,8 @@
 .centered {
   margin: auto;
   text-align: center;
+}
+
+footer {
+  font-family: Arial, Helvetica, sans-serif;
 }

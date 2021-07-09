@@ -28,7 +28,7 @@ function loadData(callback) {
 
   // Send the request
   xobj.send(null);
-};
+}
 
 function getBox(num) {
   //num++;
